@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSVariables</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Update CSS variables with <span class="hl">JS</span></h1>
+
+        <div class="settings">
+            <label for="spacing">Spacing:</label>
+            <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+            
+            <label for="blur">Blur:</label>
+            <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+            
+            <label for="base">Base-Color:</label>
+            <input type="color" name="base" value="#ffc600">
+        </div>
+
+        <img src="pic2.jpg" alt="A picture of sea">
+    </div>
+
+    <style>
+        :root {
+
+            --spacing: 10px;
+            --blur: 10px;
+            --base: #ffc600;
+        }
+        
+        .hl {
+            color: var(--base);
+        }
+        
+        img {
+            padding: var(--spacing);
+            background: var(--base);
+            filter: blur(var(--blur));
+        }
+        
+        body {
+            text-align: center;
+        }
+        
+        body {
+            background: #193549;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            font-size: 50px;
+        }
+        
+        .settings {
+            margin-bottom: 50px;
+        }
+        
+        a {
+            color: var(--base);
+            text-decoration: none;
+        }
+        
+        input {
+            width: 100px;
+        }
+    </style>
+
+        <script>
+            
+            const inputs = document.querySelectorAll('.settings input');
+        
+            function changeProperties(){
+                const suffix = this.dataset.sizing || '';
+
+                document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
+            }
+
+            inputs.forEach(input => input.addEventListener('change', changeProperties));
+        </script>
+</body>
+</html>
