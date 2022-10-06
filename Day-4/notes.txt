@@ -1,0 +1,19 @@
+console.table() = returns the values in the variable in table form
+
+Array functions in JS :
+
+~ array.prototype.filter() - Returns the filtered values according to the given conditions. 
+Filter takes a function or arrow function as parameter and does the operation for every element
+in the array.
+
+~ array.prototype.map() - Gives us an array of same length as previous with selected values. 
+Map takes a function or arrow function as parameter and stores the mapped values (first and 
+last) for every element in the array.
+
+~ array.prototype.sort() - Gives us a sorted array. Sort() takes a function or an arrow 
+function as parameter and sort the values based on the given conditions.
+
+~ array.prototype.reduce() - 
+
+
+
