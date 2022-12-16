@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Sorting Methods</title>
+</head>
+<body>
+
+    <div class="container">
+        <!-- <ul>
+           <li>the plot in you</li>
+           <li>the devil wears prada</li>
+           <li>pierce the viel</li>
+           <li>norma dean</li>
+           <li>counterparts</li>
+           <li>oh, </li>
+           <li></li>
+           <li></li>
+           <li></li>
+           <li></li>
+           <li></li>
+           <li></li>
+           <li></li> 
+        </ul> -->
+    </div>
+
+    <script>
+        const bands = [
+            "the plot in you", "the devil wears prada", "pierce the viel", "norma jean",
+            'the bled', 'say anything', 'the midway state', 'we came as romans',
+            'counterparts', 'oh, sleeper', 'a skylight drive', 'anywhere but here',
+            'an old dog'         
+        ];
+
+
+        function scream(bandName){
+            return bandName.replace(/^(a |the |an )/i , '').trim();
+        }
+        const sortedBands = bands.sort((a,b) => scream(a) >scream(b) ? 1 : -1);
+
+
+        document.querySelector('.container').innerHTML = 
+            sortedBands
+                .map(band => `<li>${band}</li>`)
+                .join('');
+
+        console.log(sortedBands);
+    </script>
+</body>
+</html>
