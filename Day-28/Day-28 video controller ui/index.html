@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Controller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
+        <p></p>
+        <div class="speed">
+          <div class="speed-bar">1×</div>
+        </div>
+    </div>
+
+    <script>
+        const video = document.querySelector('.flex');
+        const bar = document.querySelector('.speed-bar');
+        const speed = document.querySelector('.speed');
+
+        function handleSpeed(e){
+
+            // to find the exact location of y because there might extra spacing around the div
+            const y = e.pageY - this.offsetTop;
+            const percent = y / this.offsetHeight;
+
+            const min =0.4;
+            const max = 4;
+
+            const height = Math.round(percent * 100) + '%';
+
+            // (max - min) + min gives us the positive value and prevents the negative value from being assigned to the playbackRate
+            const playbackRate = percent * (max - min) + min;
+
+            bar.style.height = height;
+
+            // toFixed(2) gives us two decimal places
+            bar.textContent = playbackRate.toFixed(2) + 'x';
+            video.playbackRate = playbackRate;
+        }
+        speed.addEventListener('mousemove', handleSpeed);
+    </script>
+</body>
+</html>
