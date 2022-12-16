@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move along the navbar</title>
+</head>
+<body>
+    
+
+    <nav>
+        <ul class="menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Order Status</a></li>
+            <li><a href="">Read our history</a></li>
+            <li><a href="">Tweets</a></li>
+            <li><a href="">Contact us</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="wrapper">
+
+            <p> Lorem ipsum dolor sit amet consectetur, 
+            adipisicing elit. Modi autem, magni sit, 
+            cum reprehenderit fugiat maxime libero nesciunt officiis atque 
+            <a href="">molestias</a> id corporis repellendus sint voluptatum ducimus aperiam 
+            inventore perferendis quas esse pariatur? Alias voluptate, nesciunt 
+            illum magni quibusdam <a href="">repellendus</a> officiis dignissimos inventore reiciendis 
+            deserunt reprehenderit soluta cumque magnam corrupti.</p>
+        
+            <p> Lorem ipsum dolor sit amet consectetur, 
+            adipisicing elit. Modi autem, magni sit, 
+            cum reprehenderit fugiat maxime libero nesciunt officiis atque 
+            <a href="">moles</a> id corporis repellendus sint voluptatum ducimus aperiam 
+            inventore perferendis quas esse pariatur? Alias voluptate, nesciunt 
+            illum magni quibusdam <a href="">rependus</a> officiis dignissimos inventore reiciendis 
+            deserunt reprehenderit soluta cumque magnam corrupti.</p>
+        
+        
+            <p> Lorem ipsum dolor sit amet consectetur, 
+            adipisicing elit. Modi autem, magni sit, 
+            cum reprehenderit fugiat maxime libero nesciunt officiis atque 
+            <a href="">moleas</a> id corporis repellendus sint voluptatum ducimus aperiam 
+            inventore perferendis quas esse pariatur? Alias voluptate, nesciunt 
+            illum magni quibusdam <a href="">repellend</a> officiis dignissimos inventore reiciendis 
+            deserunt reprehenderit soluta cumque magnam corrupti.</p>
+        
+            <p> Lorem ipsum dolor sit amet consectetur, 
+            adipisicing elit. Modi autem, magni sit, 
+            cum reprehenderit fugiat maxime libero nesciunt officiis atque 
+            <a href="">molest</a> id corporis repellendus sint voluptatum ducimus aperiam 
+            inventore perferendis quas esse pariatur? Alias voluptate, nesciunt 
+            illum magni quibusdam <a href="">repel</a> officiis dignissimos inventore reiciendis 
+            deserunt reprehenderit soluta cumque magnam corrupti.</p>
+
+    </div>
+
+
+    <style>
+
+        body{
+            background-color: black;
+        }
+        .menu{
+            font-size: 40px;
+            /* background-color: rgb(191, 125, 252); */
+        }
+
+        .wrapper{
+            font-size: 25px;
+            /* background-color: rgb(43, 24, 61); */
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .highlight{
+            /* transition: all 0.2s; */
+            border-bottom: 2px solid royalblue;
+            position: absolute;
+            top: 0;
+            background: royalblue;
+            left: 0;
+            z-index: -1;
+            border-radius: 20px;
+            display: block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+    </style>
+
+
+    <script>
+
+        const triggers = document.querySelectorAll('a');
+        const highlight = document.createElement('span');
+        highlight.classList.add('highlight');
+        document.body.append(highlight);
+
+
+        function highlightLink(){
+
+            const linkCoords = this.getBoundingClientRect();
+            const coords = {
+                height: linkCoords.height,
+                width: linkCoords.width,
+                left: linkCoords.left + window.scrollX,
+                top: linkCoords.top + window.scrollY
+            }
+
+            highlight.style.height = `${coords.height}px`;
+            highlight.style.width = `${coords.width}px`;
+            highlight.style.transform = `translate(${coords.left}px, 
+                                            ${coords.top}px)`;
+        }
+
+
+        triggers.forEach(a => a.addEventListener('mouseenter', highlightLink))
+    </script>
+
+</body>
+</html>
