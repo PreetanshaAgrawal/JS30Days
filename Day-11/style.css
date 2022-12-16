@@ -1,0 +1,12 @@
+.player{
+    background-color: aqua;
+}
+/* .progressed{
+    background-color: rgb(223, 235, 156);
+} */
+.progressed__Filled{
+    background-color: rgb(241, 207, 68);
+    width: 50%;
+    flex-basis: 50%;
+    flex: 0;
+}

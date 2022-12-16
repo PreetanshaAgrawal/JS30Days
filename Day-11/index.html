@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html videoPlayer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="player">
+        <video class="bigBuckBunny" src="Big Buck Bunny.mp4"></video>
+
+
+        <div class="playerControls">
+
+            <div class="progressed">
+                <div class="progress__Filled"></div>
+            </div>
+
+            <button class="playPause" title="TogglePlay">▶</button>
+
+
+            <input type="range" name="volume" min="0" max="1" class="player_flow" value="0.5" 
+            step="0.01">
+            <input type="range" name="playbackRate" min="0.5" max="2" class="player_flow" value="1" 
+            step="0.1">
+
+            <button data-skip="-10" class="dataSkip"><< 10s</button>
+            <button data-skip="20" class="dataSkip">20s >><button>
+
+        </div>
+
+
+    </div>
+    <script src="videoScript.js"></script>
+</body>
+
+</html>
