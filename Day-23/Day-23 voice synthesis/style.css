@@ -1,0 +1,91 @@
+/* *, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  } */
+
+html {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    background: #333;
+}
+
+.voiceinator {
+    width: 640px;
+    background: white;
+    padding: 1em;
+    margin: 1em auto;
+    border-top: 5px solid #979af7;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    margin: 22px auto;
+    text-align: center;
+}
+
+/* #msg {
+    font-size: 0.9em;
+    line-height: 1.4em;
+  }
+  
+  #msg.not-supported strong {
+    color: #CC0000;
+  } */
+
+textarea[name="text"] {
+    width: 90%;
+    padding: 0.5em;
+    font-size: 1.2em;
+    border-radius: 3px;
+    border: 1px solid #D9D9D9;
+    margin: 25px 8px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1) inset;
+}
+
+input[type="range"] {
+    float: left;
+    width: 300px;
+    margin: -4% 96px;
+}
+
+
+
+label {
+    float: left;
+    width: 150px;
+    margin: 5px 10px;
+}
+
+
+#voices {
+    margin: 10px;
+    width: 500px;
+}
+
+button {
+    /* display: inline-block; */
+    border-radius: 3px;
+    border: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8em;
+    background: #7796fc;
+    border-bottom: 1px solid #040804;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+button:hover,
+button:focus {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+/* button:active {
+    opacity: 1;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1) inset;
+  } */
