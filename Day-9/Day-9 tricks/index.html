@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Tricks</title>
+</head>
+<body>
+    <p onclick="colorChange()">Click me Right NOW!</p>
+
+    <script>
+
+        const dogs = [
+            {name: 'henry', age: 10},
+            {name: 'bob', age: 8},
+            {name: 'tom', age: 5}
+        ];
+        const p = document.querySelector('p');
+
+        function colorChange(){
+            p.style.color = 'red';
+            p.style.fontSize = '50px';
+        }
+
+
+        // Tricks
+
+        // 1) regular 
+        console.log("hello");
+    
+        // 2) Interpolated 
+        // emoji in vscode is windows logo + '.';
+        console.log("hello i am a %s String", "🤣");
+    
+        // 3) styled 
+        // console.log("%c i am something awesome alright", 'font-size: 50px; background: red');
+
+
+        // 4) warning 
+        console.warn("Wait!")
+    
+        // 5) error 
+        console.error("Wait!")
+    
+        // 6) information 
+        console.info("Wait!")
+    
+        // 7) testing
+        const pi = document.querySelector('p');
+
+        // this will only execute if the condition is wrong
+        console.assert(pi.classList.contains('ouch'), "this is wrong");
+    
+        // 8) clearing of the console 
+        console.clear();
+
+        // 9) viewing DOM elements
+        console.log(p);
+        console.dir(p);
+        
+        // 10) grouping of the elements 
+            
+            dogs. forEach(dog =>{
+                //console.group(`${dog.name}`);
+
+                console.groupCollapsed(`${dog.name}`);
+                console.log(`this is ${dog.name}`);
+                console.log(`${dog.name} is ${dog.age} years old`);
+                console.groupEnd(`${dog.name}`);
+            })       
+
+
+
+        // 11) counting
+
+        console.count("Henry");
+        console.count("Henry");
+        console.count("bob");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("bob");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("bob");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("bob");
+        console.count("Henry");
+        console.count("Henry");
+        console.count("Henry");
+    
+    
+    // 12) timing
+
+    console.time("fethcing data");
+
+    fetch('https://api.github.com/users/wesbos')
+            .then(data => data.json)
+            .then(data => {
+                console.timeEnd('fethcing data');
+                console.log(data);
+            });
+    
+    // 13) tabling form
+    
+    console.table(dogs);
+    
+    
+    
+    
+    </script>
+
+</body>
+</html>
