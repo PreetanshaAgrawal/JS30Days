@@ -1,0 +1,35 @@
+html, body{
+    margin: 0%;
+    /* display: flex;
+    justify-content: center; */
+    height: 100%;
+}
+
+/* .imageRestaurant{
+     height: 722px;
+    width: 100%; 
+    position: absolute;
+} */
+
+.container{
+    background-image: url("restaurant.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-top: 0px;
+    min-width: 100vw;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    margin: 0px;
+}
+
+.wrapper{
+    background-color: white;
+    width: 300px;
+    position: absolute;
+    margin-top: 200px;
+}
