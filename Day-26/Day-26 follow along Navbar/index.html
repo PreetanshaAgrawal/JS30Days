@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover dropdown menus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav class="top">
+
+        <div class="dropdownBackground">
+            <span class="arrow"></span>
+        </div>
+
+
+        <ul class="cool">
+            <li>
+                <a href="#">About me</a>
+                <div class="dropdown dropdown1">
+                    <div class="bio">
+                        <p>Preetansha is learning web Development and is currently enjoying the journey...or rather the quest ;)</p>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">Courses Taken</a>
+                <ul class="dropdown courses">
+                    <li>
+                        <span class="code">ReactTut</span>
+                        <a href="#">ReactTUT</a>
+                    </li>
+                    <li>
+                        <span class="code">DjangoTut</span>
+                        <a href="#">DjangoTUT</a>
+                    </li>
+                    <li>
+                        <span class="code">FlaskTut</span>
+                        <a href="#">FlaskTUT</a>
+                    </li>
+                    <li>
+                        <span class="code">NodeJsTut</span>
+                        <a href="#">NodeJsTUT</a>
+                    </li>
+                    <li>
+                        <span class="code">PythonTut</span>
+                        <a href="#">PythonTUT</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Other information</a>
+                <ul class="dropdown dropdown3">
+                    <li>
+                        <a href="#">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="#">Twitter</a>
+                    </li>
+                    <li>
+                        <a href="#">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="#">LinkedIn</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+
+    <script>
+
+        const triggers = document.querySelectorAll( '.cool > li');
+        const background = document.querySelector('.dropdownBackground');
+        const nav = document.querySelector('.top');
+
+        function handleEnter(){
+            this.classList.add('trigger-enter');
+            setTimeout(() => {
+                if(this.classList.contains('trigger-enter')) {
+                     this.classList.add('trigger-enter-active');
+                }
+            }, 150);
+
+            background.classList.add('open');
+
+            const dropdown = this.querySelector('.dropdown');
+            const dropdownCoords = dropdown.getBoundingClientRect();
+            const navCoords = nav.getBoundingClientRect();
+
+            const coords = {
+                height: dropdownCoords.height,
+                width: dropdownCoords.width,
+                top: dropdownCoords.top - navCoords.top,
+                left: dropdownCoords.left - navCoords.left
+            };
+
+
+            background.style.setProperty('width', `${coords.width}px`);
+            background.style.setProperty('height', `${coords.height}px`);
+            background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+            // console.log(this);
+        }
+
+        function handleLeave(){
+            this.classList.remove('trigger-enter', 'trigger-enter-active');
+            background.classList.remove('open');
+        }
+
+        triggers.forEach(trigger =>  trigger.addEventListener('mouseenter', handleEnter));
+        triggers.forEach(trigger =>  trigger.addEventListener('mouseleave', handleLeave));
+    </script>
+</body>
+</html>
